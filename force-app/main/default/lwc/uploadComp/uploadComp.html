@@ -1,0 +1,47 @@
+<template>
+    
+<lightning-card>
+    <div style="padding:15px 15px 15px 15px;">
+            <lightning-radio-group name="radioGroup"
+            label="Type"
+            options={Typeoptions}
+            value={value}
+            onchange={RadioInput}
+            type="radio"></lightning-radio-group>
+    
+        <lightning-combobox class="slds-col"
+            name="Types"
+            label="Type Of Document"
+            value={value}
+            placeholder="Select Type"
+            options={DocToptions}
+            onchange={TypeInput}>
+        </lightning-combobox>
+
+        
+        
+        <lightning-textarea name="desc" label="Description" onchange={descInput}></lightning-textarea>
+
+        <template if:true={urlbool}>
+            <lightning-input type="url" label="URL" onchange={urlInput}></lightning-input>
+        </template>
+
+        <template if:true={filebool}>
+            <div class="slds-m-around_medium">
+                <lightning-input type="file" multiple
+                accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf"
+                label="Attachment" onchange={openfileUpload}></lightning-input>
+            </div>
+            <template if:true={fileData}>
+                <p>{fileData.filename}</p>
+            </template>
+            <div><lightning-button variant="brand" label="submit" title="Submit" onclick={handleClick} class="slds-m-left_x-small"></lightning-button></div>
+        </template>
+
+            <br>
+            <button class="slds-button slds-button_neutral" onclick={SaveAction}>Save</button>
+            <button class="slds-button slds-button_neutral" onclick={closeAction}>Close</button>
+        </div>
+
+        </lightning-card>
+    </template>

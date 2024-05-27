@@ -1,0 +1,81 @@
+<template>
+    
+    <lightning-card>
+     
+        <template if:true={bool}>
+            <div class="slds-m-vertical_medium">
+                <h6><b>QUIZ</b></h6>
+                <template for:each={set} for:item="question">
+                    <div key={question.id}>
+                        <p>{question.ques}</p>
+                        <template for:each={question.answers} for:item="answer">
+                            <lightning-input
+                                key={answer.value}
+                                type="Radio"
+                                label={answer.label}
+                                value={answer.value}
+                                onchange={handleAnswers}
+                                name={question.id}
+                            ></lightning-input>
+                        </template>
+                    </div>
+                </template>
+
+        <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClickSub}  class="slds-m-left_x-small"></lightning-button>
+        
+    </div>
+        </template>
+        <div class="slds-card slds-p-around_medium">
+        <h2 class="slds-m-bottom_medium heading">Timer: {elapsedTime}</h2>
+        
+        </div>
+
+
+        <template if:true={areDetailsVisible}>
+
+            <div class="slds-m-vertical_medium">
+                <h6><b>QUIZ</b></h6>
+                <template for:each={set} for:item="question">
+                    <div key={question.id}>
+                        <p>{question.ques}</p>
+                        <template for:each={question.answers} for:item="answer">
+                            <lightning-input
+                                key={answer.value}
+                                type="Radio"
+                                label={answer.label}
+                                value={answer.value}
+                                onchange={handleAnswers}
+                                name={question.id}
+                            ></lightning-input>
+                        </template>
+                    </div>
+                </template>
+
+        <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClickSub}  class="slds-m-left_x-small"></lightning-button>
+       
+    </div>
+        
+        
+    </div>
+        </template>
+        <template if:true={scorebool}>
+            <template if:true={good}>
+               
+                <div style={percentage} class="slds-notify slds-notify_alert slds-theme_success">
+                You have scored {percent}
+            </div>
+                  
+            </template>
+            <template if:false={good}>
+            <div style={percentage} class="slds-notify slds-notify_alert slds-theme_error">
+                You have scored {percent}
+            </div>
+            
+            </template>
+            <lightning-button variant="brand" label="Restart" title="Primary action" onclick={handleClickRef} class="slds-m-left_x-small"></lightning-button>
+        </template>
+        
+    
+    </lightning-card>
+    
+</template>

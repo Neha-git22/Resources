@@ -1,0 +1,33 @@
+<apex:page controller="vfAccList">
+    <apex:form >
+        <apex:pageBlock title="Accounts">
+            <apex:pageBlockTable value="{!accounts}" var="acc" id="table">
+                <apex:column headerValue="Actions">
+                    <apex:commandLink action="{!editRecord}" value="Edit">
+                        <apex:param name="recordId" value="{!acc.Id}" assignTo="{!recordId}"/>
+                    </apex:commandLink>
+                    &nbsp;|&nbsp;
+                    <apex:commandLink action="{!deleteRecord}" value="Delete" onclick="return confirm('Are you sure you want to delete this record?');">
+                        <apex:param name="recordId" value="{!acc.Id}" assignTo="{!recordId}"/>
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column value="{!acc.Name}"/>
+                <apex:column value="{!acc.Phone}"/>
+                                
+                <apex:facet name="footer">
+                    <apex:outputPanel layout="block" style="text-align:center;">
+                        <apex:commandButton action="{!firstPage}" rendered="{!hasPrevious}" value="First" rerender="table"/>
+                        
+                        <apex:commandButton action="{!previousPage}" rendered="{!hasPrevious}" value="Previous" rerender="table"/>
+                        
+                        Page {!pageNumber} of {!totalPages}
+                        
+                        <apex:commandButton action="{!nextPage}" rendered="{!hasNext}" value="Next" rerender="table"/>
+                        
+                        <apex:commandButton action="{!lastPage}" rendered="{!hasNext}" value="Last" rerender="table"/>
+                    </apex:outputPanel>
+                </apex:facet>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

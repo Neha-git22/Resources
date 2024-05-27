@@ -1,0 +1,19 @@
+<apex:page controller="VFcalculator">
+    <apex:form >
+        Enter num1 : <apex:inputText value="{!num1}"/><br/>
+        
+        Enter num2 : <apex:inputText value="{!num2}"/> <br/>
+        
+        
+        
+        <apex:commandButton value="Add" action="{!Addition}"/><t/>
+        <apex:commandButton value="Subtract" action="{!Subtraction}"/>
+        <apex:commandButton value="Multiply" action="{!Multiplication}"/>
+        <apex:commandButton value="Divide" action="{!Division}"/>
+        
+        <br/>
+        
+        Answer:<apex:outputText value="{!Value}"/>
+        
+    </apex:form>
+</apex:page>

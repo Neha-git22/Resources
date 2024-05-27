@@ -1,0 +1,22 @@
+<apex:page controller="Rlist">
+    <apex:form >
+        <apex:pageBlock title="Related Lists">
+            <apex:pageBlockSection >
+                <apex:outputLabel value="Select an Object: " for="objectPicklist"/>
+                <apex:selectList id="objectPicklist" value="{!selectedObject}" size="1">
+                    <apex:selectOptions value="{!objectOptions}"/>
+                    <apex:actionSupport event="onchange" action="{!updateRelatedList}" rerender="relatedListSection"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:outputPanel id="relatedListSection">
+            <apex:pageBlock title="Related List">
+                <apex:pageBlockTable value="{!relatedRecords}" var="r">
+                    <!-- Display fields or columns for the related records -->
+                    <apex:column value="{!r.Id}"/> <!-- Replace with actual field names -->
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

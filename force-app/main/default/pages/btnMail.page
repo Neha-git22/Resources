@@ -1,0 +1,7 @@
+<apex:page controller="VfbtnMailcontroller">
+    <apex:form >
+        <apex:commandButton />
+    </apex:form>
+    
+    
+</apex:page>

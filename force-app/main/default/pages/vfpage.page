@@ -1,0 +1,8 @@
+<apex:page controller="demopagevfcontroller">
+    <apex:form >
+        <apex:pageBlock title="Account name">
+            current page Account name : <apex:inputField value="{!account.name}"/>
+            <apex:commandButton action="{!save}" value="save"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,44 @@
+<template>
+<lightning-card>
+    <lightning-combobox
+        name="AccountIds"
+        label=""
+        value={value}
+        placeholder="Select Account Name"
+        options={accountOptions}
+        onchange={handleAccInput} ></lightning-combobox>
+
+        <lightning-button variant="brand" label="custom table" title="View custom table" onclick={handleCustomT} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="data table" title="View data table" onclick={handleDataT} class="slds-m-left_x-small"></lightning-button>
+
+        <template if:true={bool}>
+            <div style="height: 300px;">
+                <lightning-datatable
+                        key-field="id"
+                        data={tabledata1}
+                        columns={columns}>
+                </lightning-datatable>
+            </div>
+        </template>
+        <template if:true={bool1}>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th scope="col">Related Con Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Ph.Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={tabledata1} for:item="contact">
+                        <tr key={contact.Id}>
+                            <td>{contact.Id}</td>
+                            <td>{contact.LastName}</td>
+                            <td>{contact.Phone}</td>
+                        </tr>
+                    </template> 
+                </tbody>
+            </table>
+        </template>
+</lightning-card>
+</template>

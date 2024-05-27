@@ -1,0 +1,19 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+    <aura:attribute name="conName" type="String" default="Neha"/>
+    <aura:attribute name="conNumber" type="Integer" default='12345'/>
+    <aura:attribute name="conEmail" type="String"/>
+
+    <lightning:card >
+        <div class="slds-p-around_x-small">
+         <h1 style="font-size:30px;"> Contact informations</h1>
+    <lightning:input name="inputname" label="Contact Name" value="{!v.conName}"/>
+    <lightning:input type="tel" name="inputnumber" label="Contact Number" />
+    <lightning:input type="email" name="inputEmail" label="Contact Email" value="{!v.conEmail}"/>
+    <lightning:button variant="brand" label="Save" class="btn" title="Save action" onclick="{!c.myconAction}" />
+        
+        
+        </div>
+           
+    </lightning:card>
+    
+</aura:component>

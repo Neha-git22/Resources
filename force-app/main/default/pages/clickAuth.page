@@ -1,0 +1,5 @@
+<apex:page controller="ClickButtonController">
+    <apex:form >
+        <apex:commandButton action="{!Redirect}" value="GetAuthCode" />
+    </apex:form>
+</apex:page>

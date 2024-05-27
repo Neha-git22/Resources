@@ -1,0 +1,46 @@
+<apex:page controller="dynamicRowsAdd">
+    <apex:form id="Form">
+        <apex:pageblock id="PB" title="Creating Multiple Accounts">
+            
+            <apex:pageblockButtons location="top">
+                <apex:commandButton value="Save" action="{!SaveMultipleAccounts}" />                
+            </apex:pageblockButtons>
+            
+            <apex:outputPanel id="accountHead">
+                <apex:variable value="{!0}" var="rowNum"/>  
+                <apex:pageBlockSection columns="1" title="Add Multiple Accounts Here" id="Pbs" collapsible="False"> 
+                    
+                    <apex:pageBlockTable value="{!accList}" var="everyRecord"> 
+                        
+                        <apex:column headerValue="Action">
+                            <apex:commandLink value="Remove" style="color:red" action="{!removeRowFromAccList}" rendered="{!rowNum > 0}" rerender="accountHead" immediate="true" >
+                                <apex:param value="{!rowNum}" name="rowToRemove" assignTo="{!rowToRemove}"/>
+                            </apex:commandLink>
+                            <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                        </apex:column>
+                        
+                        <apex:column headerValue="Account Name">
+                            <apex:inputField value="{!everyRecord.record.Name}" />
+                        </apex:column>
+                        
+                        <apex:column headerValue="Account Number">
+                            <apex:inputField value="{!everyRecord.record.AccountNumber}" />
+                        </apex:column>
+                        
+                        
+                        <apex:column headerValue="Industry">
+                            <apex:inputfield value="{!everyRecord.record.Industry}" />
+                        </apex:column>
+                        
+                        <apex:column headerValue="Rating">
+                            <apex:inputfield value="{!everyRecord.record.Rating}" />
+                        </apex:column>                         
+                        
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+                <apex:commandButton value="Add More Rows" action="{!addNewRowToAccList}" rerender="accountHead" Status="status" immediate="true" />
+                
+            </apex:outputPanel>            
+        </apex:pageblock>
+    </apex:form>    
+</apex:page>

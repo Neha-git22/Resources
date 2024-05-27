@@ -1,0 +1,23 @@
+<template>
+    <lightning-card>
+
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="Account Name" onchange={NameInput}></lightning-input>
+        <lightning-input type="text" label="Email" onchange={EmailInput}></lightning-input>
+    </div>
+    <lightning-button variant="brand" label="Submit" title="Submit" onclick={handleClickAcc} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand" label="Next" title="Next" onclick={Rendernext} class="slds-m-left_x-small"></lightning-button>
+
+    <template if:true={bool}>
+        <div class="slds-p-around_medium lgc-bg">
+            <p>Create Related Contact</p>
+            <lightning-input type="text" label="Id" value={AccId}></lightning-input>
+            <lightning-input type="text" label="LastName" onchange={LNameInput}></lightning-input>
+            <lightning-input type="text" label="Phnum" onchange={PhnInput}></lightning-input>
+        </div>
+        <lightning-button variant="brand" label="Submit" title="Submit" onclick={handleClickCon} class="slds-m-left_x-small"></lightning-button>
+
+    </template>
+
+    </lightning-card>
+</template>

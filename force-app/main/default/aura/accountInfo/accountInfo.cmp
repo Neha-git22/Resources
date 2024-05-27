@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" controller="AccountInfo_aHandler">
+    <aura:attribute name="accName" type="String" default="Neha"/>
+    <aura:attribute name="accNumber" type="Integer" default='12345'/>
+    <aura:attribute name="accEmail" type="String"/>
+
+    <lightning:card>
+        <div class="slds-p-around_x-small">
+         <h1 style="font-size:30px;"> Account informations</h1>
+    <lightning:input name="inputname" label="Account Name" value="{!v.accName}"/>
+    <lightning:input type="tel" name="inputnumber" label="Account Number" value="{!v.accNumber}" />
+    <lightning:input type="email" name="inputEmail" label="Account Email" value="{!v.accEmail}"/>
+    <lightning:button variant="brand" label="Save" class="btn" title="Save action" onclick="{!c.myaccAction}" />
+        
+        
+        </div>
+           
+    </lightning:card>
+    <c:contactInfo/>
+    
+</aura:component>

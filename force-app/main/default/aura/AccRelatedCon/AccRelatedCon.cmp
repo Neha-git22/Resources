@@ -1,0 +1,71 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="AccRelCon_Handle" > 
+    <aura:attribute name="accVal" type="string"/>
+    <aura:attribute name="accL" type="Account[]"/>
+    <aura:attribute name="conL" type="Contact[]"/>
+    <aura:attribute name="conVal" type="string"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="conB" type="boolean" default="true"/>
+    <aura:attribute name="selectedid" type="string"/>
+    <aura:attribute name="customT" type="boolean" default="false"/>
+    <aura:attribute name="custom" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:card>
+        <lightning:select name="accList" label="Select an Account" aura:id="accList" value="{!v.accVal}" onchange="{!c.fetch}">
+            
+            <option value="">--Select-- </option>
+            <aura:iteration items="{!v.accL}" var="A">
+                <option value="{!A.Id}">{!A.Name}</option>
+            </aura:iteration>
+        </lightning:select>
+        
+        <aura:if isTrue="{!not(empty(v.accVal))}">
+            <aura:if isTrue="{!empty(v.conL)}">
+                Selected Account has no related contacts
+            </aura:if> 
+            <aura:if isTrue="{!not(empty(v.conL))}">
+                
+                <lightning:button variant="brand-outline" label="Custom Table" title="Ctable action" onclick="{! c.fetchCon1 }" />
+                <lightning:button variant="brand-outline" label="Data Table" title="Dtable action" onclick="{! c.fetchCon2 }" />
+                
+                <aura:if isTrue="{!v.customT }">
+                    
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                        <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.conL}" var="con">
+                                <tr>
+                                    <td data-label="Contact Name">{!con.FirstName}</td>
+                                    <td data-label="Contact Name">{!con.LastName}</td>
+                                    <td data-label="Email">{!con.Email}</td>
+                                    
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                        
+                    </table>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.custom}">
+                            <div style="height: 300px">
+                                <lightning:datatable  keyField="id" data="{! v.conL }" columns="{! v.columns }" hideCheckboxColumn="true"/>
+                            </div>
+                        </aura:if> 
+                    </aura:set>
+                </aura:if> 
+            </aura:if>
+            
+            <aura:set attribute="else">
+                <p>please select an account</p>
+            </aura:set>
+        </aura:if>
+        
+        
+    </lightning:card>
+</aura:component>

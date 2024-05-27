@@ -1,0 +1,64 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Column 1">Name</div>
+                </th>
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Column 2">Industry</div>
+                </th>
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Column 3">Type</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={accData} for:item="row">
+                <tr key={row.Id}  class="slds-hint-parent">
+                    <td data-label="Column 1">
+
+                        <lightning-button variant="base" value={row.Id} label={row.Name} title="button" onclick={handleNameClick} class="slds-m-left_x-small"></lightning-button></td>
+                    <td data-label="Column 2">
+                        <div class="slds-truncate" title={row.Industry}>{row.Industry}</div>
+                    </td>
+                    <td data-label="Column 3">
+                        <div class="slds-truncate" title={row.Type}>{row.Type}</div>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+
+    <template if:true={show}>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Column 1">LastName</div>
+                </th>
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Column 2">Phone</div>
+                </th>
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Column 3">Email</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={conData} for:item="row">
+                <tr key={row.Id}  class="slds-hint-parent">
+                    <td data-label="Column 1">
+                        <div class="slds-truncate" title={row.LastNmae}>{row.LastName}</div>      </td>              
+                    <td data-label="Column 2">
+                        <div class="slds-truncate" title={row.Phone}>{row.Phone}</div>
+                    </td>
+                    <td data-label="Column 3">
+                        <div class="slds-truncate" title={row.Email}>{row.Email}</div>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+        </template>
+</template>

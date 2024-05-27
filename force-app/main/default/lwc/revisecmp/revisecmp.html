@@ -1,0 +1,15 @@
+<template>
+    <lightning-card  title="Show Message">
+      <p>MSG:{Name}</p>
+      <lightning-input type="text" label="Enter some text" onchange={getInp}></lightning-input>
+      <lightning-button variant="brand" label="Change" title="Change" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+      <p>{show}</p>
+      <lightning-button variant="brand" label="var" title="Change" onclick={handleClickV} class="slds-m-left_x-small"></lightning-button>
+      <p>{show}</p>
+      <lightning-button variant="brand" label="const" title="Change" onclick={handleClickC} class="slds-m-left_x-small"></lightning-button>
+      
+      <lightning-button variant="brand" label="let" title="Change" onclick={handleClickL} class="slds-m-left_x-small"></lightning-button>
+      
+    </lightning-card>
+
+</template>

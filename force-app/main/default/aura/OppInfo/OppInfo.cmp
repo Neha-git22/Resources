@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="OppInfo_Handler">
+	<aura:attribute name="oppName" type="String"/>
+    <aura:attribute name="closeDate" type="String"/>
+    <aura:attribute name="stageName" type="String"/>
+    <aura:attribute name="accName" type="String"/>
+    <aura:attribute name="prob" type="Integer"/>
+
+    <lightning:card>
+        <lightning:input name="nameInput" label="Opportunity Name:" required="true" value="{!v.oppName}"/>
+        <lightning:input type="date" name="dateInput" label="Close Date:" required="true" value="{!v.closeDate}" />
+        
+        <lightning:select name="stageInput" label="Stage" required="true" value="{!v.stageName}">
+            <option value="">--None--</option>
+            <option value="1">Prospecting</option>
+            <option value="2">Qualification</option>
+            <option value="3">Needs Analysis</option>
+            <option value="4">Value Proposition</option>
+            <option value="5">Id.Decision Makers</option>
+            <option value="6">Perception Analysis</option>
+            <option value="7">Proposal/Price Quote </option>
+            <option value="8">Negotiation Review</option>
+            <option value="9">Closed Won</option>
+            <option value="10">Closed Lost</option>
+        </lightning:select>
+        
+        <lightning:input name="accnameInput" label="Account Name:" value="{!v.accName}"/>
+        <lightning:input type="number" name="probInput" label="Probability" value="{!v.prob}" />    
+        <lightning:button variant="Success" label="Save" title="Save action" onclick="{!c.myoppAction}" />
+        <lightning:button variant="destructive" label="Cancel" title="Clear action" onclick="{!c.clearAction}" />
+
+    </lightning:card>    
+</aura:component>

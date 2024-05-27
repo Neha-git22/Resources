@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="First Name" onchange={FnameInput}></lightning-input>
+        <lightning-input type="text" label="Last Name" onchange={LnameInput}></lightning-input>
+        <lightning-input type="text" label="Phone Number" onchange={phnoInput}></lightning-input>
+        <lightning-input type="date" name="Date" label="BirthDate" onchange={dateInput}></lightning-input>
+
+        <lightning-combobox
+            name="Account Names"
+            label="Account Names"
+            value={accname}
+            placeholder="Select Progress"
+            options={options}
+            onchange={AccNameInput} ></lightning-combobox>
+
+            <lightning-button variant="brand" label="Submit" title="Submit" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </div>
+</lightning-card>
+    
+</template>

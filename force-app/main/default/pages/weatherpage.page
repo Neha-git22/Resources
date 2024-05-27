@@ -1,0 +1,23 @@
+<apex:page controller="WeatherController" setup="false" sidebar="false" showHeader="true" tabStyle="Account"> 
+   <apex:sectionHeader title="Weather" subtitle="Weather Details"/>
+   <apex:form >
+       <apex:pageBlock title="Weather Details Block">
+           <apex:pageBlockSection title="Search Weather Details" collapsible="true" columns="2">
+               <apex:inputText label="Enter City Name: " html-placeholder="Enter City Name" value="{!CityName}"/>
+               <apex:commandButton value="Show Weather Details" action="{!GetWeatherDetails}" reRender="pgBlock" />
+           </apex:pageBlockSection>
+       </apex:pageBlock>
+       
+       <apex:pageBlock title="Weather Details for :{!CityName}" id="pgBlock">
+           {!weatherResponseJSON }
+           <apex:pageBlockSection title=" Wheather Details section"></apex:pageBlockSection>
+       <apex:outputText ></apex:outputText>
+       <apex:outputText ><h1>Pressure Value:{!pressureValue}</h1></apex:outputText><br/><br/><br/>
+       <apex:outputText ><h1>Humidity Value:{!humidityValue}</h1></apex:outputText><br/><br/><br/>
+       <apex:outputText ><h1>Feels Like Temprature:{!feelsLikeTemp}</h1></apex:outputText><br/><br/><br/>
+       <apex:outputText ><h1>Average Temprature:{!AvgTemp}</h1></apex:outputText><br/><br/><br/>
+       <apex:outputText ><h1> Minimum Temprature:{!minTemp}</h1></apex:outputText><br/><br/><br/>
+       <apex:outputText ><h1>Maximum Temperature:{!maxTemp}</h1></apex:outputText><br/><br/><br/>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

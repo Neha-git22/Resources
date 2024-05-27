@@ -1,0 +1,14 @@
+<apex:page standardController="Account" extensions="DownloadController">
+
+<apex:pageBlock title="Download Account Related Contacts Information into a CSV file">
+    
+<apex:pageBlockTable value="{!conL}" var="con">
+
+    <apex:column value="{!con.LastName}"/>
+    <apex:column value="{!con.Email}"/>
+    <apex:column value="{!con.Phone}"/>
+    
+</apex:pageBlockTable>    
+    
+</apex:pageBlock>
+</apex:page>

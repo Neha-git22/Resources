@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Accounts with Contacts" icon-name="standard:account">
+        <!-- Display accounts -->
+        <lightning-datatable
+            key-field="Id"
+            data={accData}
+            columns={accCols}
+            onrowaction={handleRowClick}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+
+        
+        <template if:true={show}>
+            <lightning-card title="Contacts" icon-name="standard:contact">
+                <lightning-datatable
+                    key-field="Id"
+                    data={conData}
+                    columns={conCols}>
+                </lightning-datatable>
+            </lightning-card>
+        </template>
+    </lightning-card>
+</template>

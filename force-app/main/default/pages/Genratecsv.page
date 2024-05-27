@@ -1,0 +1,11 @@
+<apex:page Controller="UploadData" sidebar="false">
+    <div class="slds-scope">
+        <apex:form >
+            <apex:selectList size="1">
+                <apex:selectOptions value="{!dynamiclist}"></apex:selectOptions>
+            </apex:selectList>
+        </apex:form>
+        
+        
+    </div>
+</apex:page>

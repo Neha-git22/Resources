@@ -1,0 +1,13 @@
+<template>
+<lightning-card title="Reverse String & Palindrome">
+    <div class="slds-p-around_medium">
+        <lightning-input label="Enter a string" value={inputString} onchange={handleInputChange}></lightning-input>
+        <lightning-button variant="brand" label="Reverse" title="Primary action" onclick={reverseClick} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="Palindrome" title="Primary action" onclick={palindromeClick} class="slds-m-left_x-small"></lightning-button>
+
+
+        <p>{revString}</p>
+        <p>{result}</p>
+    </div>
+</lightning-card>
+</template>

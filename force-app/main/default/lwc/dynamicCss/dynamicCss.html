@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Dynamic Css" icon-name="standard:account">
+        <div class="slds-p-around-medium">
+            <lightning-input type="number"  label="label"  value={percent} onkeyup={handlechange}></lightning-input>  
+            
+            <div style={percentage} class="slds-notify slds-notify_alert slds-theme_texture slds-theme_error">
+                heloo dynamic css
+                
+            </div>
+        </div>
+        <div class="slds-align_absolute-center">
+                    <div class={isScoreCheck}> You Have Scored  Out Of
+                        
+                    </div>
+                </div>
+    </lightning-card>
+</template>

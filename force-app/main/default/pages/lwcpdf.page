@@ -1,0 +1,28 @@
+<!-- YourVisualforcePage.page -->
+<apex:page renderAs="pdf" controller="VFlwcgenerate" applyBodyTag="false">
+    <head>
+        <style>
+            /* CSS styles for the PDF content */
+            /* You can customize styles as needed */
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .container {
+                margin: 20px;
+            }
+            .name {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .email {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <p class="name">{!di}</p>
+            <p class="email">{!name}</p>
+        </div>
+    </body>
+</apex:page>

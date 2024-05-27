@@ -1,0 +1,17 @@
+<template>
+    <lightning-card >
+        <lightning-icon icon-name="standard:event" alternative-text="Event" title="event"></lightning-icon>
+        <b><lightning-formatted-text class="slds-form-element__label slds-col" value="Basic Calculator"></lightning-formatted-text></b>
+        <lightning-input type="number" name="input2" label="Enter First Number :" value={num1} onchange={input1}></lightning-input>
+        <lightning-input type="number" name="input2" label="Enter Second Number :" value={num2} onchange={input2}></lightning-input>
+        <br>
+        <div>Calculation Output: {result}</div>
+        <br>
+        <lightning-button variant="brand" label="+" title="Primary action" onclick={Add} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="-" title="Primary action" onclick={Subtract} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="/" title="Primary action" onclick={Divide} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="*" title="Primary action" onclick={Multiply} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="%" title="Primary action" onclick={Modulo} class="slds-m-left_x-small"></lightning-button>
+        <p slot="footer"></p>
+    </lightning-card>
+</template>

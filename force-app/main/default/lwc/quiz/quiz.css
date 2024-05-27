@@ -1,0 +1,18 @@
+.good{
+    color:white;
+    background-color:green;
+    background-size:var(--percent);
+
+
+}
+.nogood{
+    color:white;
+    background-color:red;
+    background-size:var(--percent);
+}
+
+.slds-progress-bar__value{
+
+    background: green !important;
+
+}

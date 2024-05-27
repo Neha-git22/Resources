@@ -1,0 +1,76 @@
+<template>
+    <div class="slds-box slds-theme–default">
+        <lightning-button-icon icon-name="utility:refresh"    alternative-text="refresh"   class="slds-m-left_xx-small" title="refresh" onclick={refHandle}></lightning-button-icon>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        Filename
+                    </th>
+                    <th class="" scope="col">
+                        Type
+                    </th>
+                    <th class="" scope="col">
+                        Type of Document
+                    </th>
+                    <th class="" scope="col">
+                        URL/File
+                    </th>
+                    
+                    <th class="" scope="col">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <template for:each={dataList} for:item="it1">
+                    <tr  key={it1.atId} >
+                        <td >{it1.atName}</td>
+                        <td >{it1.atType}</td>
+                        <td >{it1.atDoctype}</td>
+                        <template if:true={it1.atURL}>
+                            <td ><a href={it1.atURL}>{it1.atURL}</a></td>
+                        </template>
+                        <template if:true={it1.atFileTitle}>
+                            <td><lightning-button label={it1.atFileTitle}
+                                variant="base"
+                               data-id={it1.atFileid}
+                               onclick={previewHandler}></lightning-button>
+                            </td>
+                        </template>    
+                        <template if:true={statbool}>              
+                        <td><lightning-button-icon icon-name="utility:delete"    alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon></td> </template> 
+                    </tr>
+                </template>
+            
+                   <!-- <template for:each={dataList} for:item="one">
+                        <tr class="slds-hint-parent" key = {one.Id}>
+                        <template for:each={one} for:item="two">
+                            
+                            <div class="slds-hint-parent" key = {two.Id}>
+                                <td data-label="Spec File" >
+                                    <div class="slds-cell-wrap">{two}</div>
+                                </td>
+                                <td data-label="Spec File">
+                                    <div class="slds-cell-wrap">{two}</div>
+                                </td>
+                                <td data-label= "File Name">
+                                    <div class="slds-cell-wrap">{two}</div>
+                                </td>
+                                <td data-label="File Type">
+                                    <div class="slds-cell-wrap">{two}</div>
+                                </td>
+                                <td data-label="File Extension">
+                                    <div class="slds-cell-wrap">{two}</div>
+                                </td>
+                            </div>
+                            
+                        </template>
+                    </tr>
+                    </template>!-->
+            </tbody>
+        </table>
+        
+    </div>
+</template>

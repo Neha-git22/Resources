@@ -1,0 +1,32 @@
+<template>
+    <lightning-card>
+    <div class="slds-m-around_medium">
+        <h1 class="slds-text-heading_small"> Search </h1>
+        <p class="slds-text-body_regular">Search a Account by name to obtain related records.</p>
+    </div>
+    <div>
+        <lightning-input
+            name="enter-search"
+            label=""
+            type="search"
+        ></lightning-input>
+    </div>
+    <br><br>
+    <lightning-button variant="brand" label="custom table" title="View custom table" onclick={handleCustomT} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand" label="data table" title="View data table" onclick={handleDataT} class="slds-m-left_x-small"></lightning-button>
+
+    
+    <div if:true={data}>
+        <div style="height: 300px;">
+            <lightning-datatable>
+                    key-field="id"
+                    data={tabledata}
+                    columns={columns}>
+            </lightning-datatable>
+        </div>
+    </div>
+    
+
+    
+</lightning-card>
+</template>

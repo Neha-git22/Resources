@@ -1,0 +1,19 @@
+<template>
+<lightning-card>
+
+<div align="center"><h3>Generate Accounts created between date1 to date2</h3></div>
+<div class="slds-clearfix">
+    <div class="slds-float_left">
+<lightning-input type="date" name="Date1" label="Enter Initial date" onchange={handleDate1}></lightning-input>
+</div>
+
+    <div class="slds-float_right">
+<lightning-input type="date" name="Date2" label="Enter Last date" onchange={handleDate2}></lightning-input>
+</div>
+</div>
+<div align="center"><lightning-button  variant="brand" label="Generate PDF" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+</div>
+
+</lightning-card>
+
+</template>

@@ -1,0 +1,6 @@
+<apex:page controller="ClickUp">
+    <apex:form >
+        <apex:commandButton action="{!Get_Teamid}" value="Redirect" />
+    </apex:form>
+    
+</apex:page>
